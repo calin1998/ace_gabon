@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACE GABON</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/recherche.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+</head>
+
+<body>
+   
+    <section>
+        <a href="{{ url_for('personnel') }}">
+            <h1>RECHERCHE</h1>
+        </a>
+        <form action="{{ url_for('votre_route_de_recherche') }}" method="post" id="rechercheForm">
+            <div class="form-group">
+                <input type="text" id="searchInput" name="search" placeholder="Rechercher par nom, prénom, etc.">
+            </div>
+
+            <nav>
+            <!-- Vos champs de formulaire ici -->
+<div class="form-group">
+    <input type="checkbox" id="nom" name="nom">
+    <label for="nom">Nom(s)</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="prenom" name="prenom">
+    <label for="prenom">Prénom(s)</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="date_naissance" name="date_naissance">
+    <label for="date_naissance">Date de Naissance</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="lieu_naissance" name="lieu_naissance">
+    <label for="lieu_naissance">Lieu de Naissance</label>
+</div>
+
+
+<div class="form-group">
+    <input type="checkbox" id="departement" name="departement">
+    <label for="departement">Département</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="fonction" name="fonction">
+    <label for="fonction">Fonction</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="niveau_etude" name="niveau_etude">
+    <label for="niveau_etude">Niveau d'Étude</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="diplome" name="diplome">
+    <label for="diplome">Diplôme</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="numero_telephone" name="numero_telephone">
+    <label for="numero_telephone">Numéro de Téléphone</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="adresse_mail" name="adresse_mail">
+    <label for="adresse_mail">Adresse Email</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="statut_matrimonial" name="statut_matrimonial">
+    <label for="statut_matrimonial">Statut Matrimonial</label>
+    <select id="statutMatrimonialValue" name="statutMatrimonialValue">
+        <option value="celibataire">Concubinage</option>
+        <option value="celibataire">Célibataire</option>
+        <option value="marie">Marié(e)</option>
+        <option value="divorce">Divorcé(e)</option>
+        <option value="veuf">Veuf/Veuve</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="date_embauche" name="date_embauche">
+    <label for="date_embauche">Date d'Embauche</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="lieu_naissance" name="lieu_naissance">
+    <label for="lieu_naissance">Lieu de Naissance</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="sexe" name="sexe">
+    <label for="sexe">Sexe</label>
+    <select id="sexeValue" name="sexeValue">
+        <option value="homme">Homme</option>
+        <option value="femme">Femme</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="departement" name="departement">
+    <label for="departement">Département</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="Numero_CNAMGS" name="Matricule">
+    <label for="Matricule">Matricule</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="Numero_CNAMGS" name="Numero_CNAMGS">
+    <label for="Numero_CNAMGS">Numero_CNAMGS</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="Numero_CNSS" name="Numero_CNSS">
+    <label for="Numero_CNSS">Numero_CNSS</label>
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="nombre_enfants" name="nombre_enfants">
+    <label for="nombre_enfants">Nombre d'Enfants</label>
+</div>
+
+<div class="form-group">
+    <label>Type de contrat</label><br>
+    <input type="checkbox" id="cdi" name="contrat" value="cdi" required>
+    <label for="cdi"> CDI</label><br>
+    <input type="checkbox" id="cdd" name="contrat" value="cdd">
+    <label for="cdd">CDD</label><br>
+    <input type="checkbox" id="cdd" name="contrat" value="journalier">
+    <label for="cdd">journalier</label><br>
+    
+
+            </nav>
+
+            <div class="form-group" style="text-align: center;">
+                <button type="button" onclick="effectuerRecherche()" style="display: block; margin: 0 auto; padding: 10px 20px; background-color: #115584; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+                    Rechercher
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        function effectuerRecherche() {
+            var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+            
+            // Vérifier si au moins une case à cocher est sélectionnée
+            if (checkboxes.length === 0) {
+                // Afficher une boîte de dialogue pour demander à l'utilisateur de sélectionner au moins une option
+                alert("Veuillez sélectionner au moins une option de recherche.");
+                return; // Arrêter la fonction si aucune option n'est sélectionnée
+            }
+    
+            var searchInput = document.getElementById("searchInput").value;
+            var searchData = {};
+    
+            checkboxes.forEach(function(checkbox) {
+                searchData[checkbox.id] = true;
+                var valueElement = document.getElementById(checkbox.id + "Value");
+                if (valueElement) {
+                    searchData[checkbox.id + "_value"] = valueElement.value;
+                }
+            });
+    
+            var queryString = "?search=" + searchInput;
+            for (var key in searchData) {
+                queryString += "&" + key + "=" + searchData[key];
+            }
+    
+            window.location.href = "{{ url_for('resultats_recherche') }}" + queryString;
+        }
+    
+        function envoyerDonneesServeur() {
+            var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+            var selectedValues = {};
+    
+            checkboxes.forEach(function(checkbox) {
+                selectedValues[checkbox.id] = true;
+            });
+    
+            fetch('/votre_url_de_traitement', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(selectedValues)
+            })
+            .then(response => {
+                // Gérer la réponse du serveur
+            })
+            .catch(error => {
+                console.error('Erreur lors de l\'envoi des données :', error);
+            });
+        }
+    </script>
+    
+    
+</body>
+
+</html>
+
+

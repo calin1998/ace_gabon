@@ -1,0 +1,121 @@
+/* Styles généraux pour tous les appareils */
+body {
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    width: 60%;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.5s ease;
+}
+
+section:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #115584;
+    animation: move 5s ease-in-out infinite alternate;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+}
+
+label {
+    margin-left: 5px;
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+}
+
+input[type="checkbox"],
+input[type="number"] {
+    margin-right: 10px;
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+    font-size: 20px;
+} 
+
+input{
+    font-size: 20px;
+}
+
+/* Styles pour la barre de recherche */
+#searchInput {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding: 10px;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: 18px;
+    margin-bottom: 60px;
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #115584;
+    box-shadow: 0 0 5px rgba(17, 85, 132, 0.5);
+}
+
+/* Styles pour l'input du nombre d'enfants */
+#nombre_enfants {
+    width: 20%;
+    padding: 2px;
+    border: 1px solid white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+}
+
+#nombre_enfants:focus {
+    outline: none;
+    border-color: #115584;
+    box-shadow: 0 0 5px rgba(17, 85, 132, 0.5);
+}
+
+nav {
+    margin: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+}
+
+/* Media queries pour les appareils mobiles */
+@media screen and (max-width: 768px) {
+    section {
+        width: 80%;
+    }
+}
+
+/* Media queries pour les tablettes */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    section {
+        width: 70%;
+    }
+}
+
+/* Media queries pour les ordinateurs de bureau */
+@media screen and (min-width: 1025px) {
+    section {
+        width: 60%;
+    }
+}

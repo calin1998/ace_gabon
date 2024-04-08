@@ -1,0 +1,114 @@
+body {
+    font-family: 'Minion Pro', 'Myriad Pro Bold';
+}
+
+a {
+    text-decoration: none;
+}
+
+.et-hero-tabs,
+.et-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+    position: relative;
+    background: white;
+    text-align: center;
+}
+
+.et-hero-tabs h1 {
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+    font-size: 20vw;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    letter-spacing: 0.5rem;
+    color: #115584;
+}
+
+.et-hero-tabs h3 {
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    opacity: 0.9;
+    text-align: center;
+    color: gray;
+}
+
+.et-hero-tabs h3.highlighted {
+    color: #115584;
+}
+
+.et-hero-tabs-container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+
+    background: white;
+}
+
+.et-hero-tabs-container--top {
+    position: fixed;
+    top: 0;
+}
+
+.et-hero-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    color: gray;
+    letter-spacing: 0.1rem;
+    transition: all 0.5s ease;
+    font-size: 0.8rem;
+}
+
+.et-hero-tab:hover {
+    color: white;
+    background: #115584;
+    transition: all 0.5s ease;
+}
+
+.et-hero-tab-slider {
+
+    bottom: 0;
+    width: 0;
+    height: 6px;
+    background: #115584;
+    transition: left 0.3s ease;
+}
+
+/* Media queries pour les téléphones */
+@media screen and (max-width: 600px) {
+    .et-hero-tabs h1 {
+        font-size: 6vw; /* Réduire la taille du titre pour les téléphones */
+    }
+
+    .et-hero-tabs h3 {
+        font-size: 0.8rem; /* Réduire la taille du sous-titre pour les téléphones */
+    }
+
+    .et-hero-tab {
+        font-size: 0.7rem; /* Réduire la taille des onglets pour les téléphones */
+    }
+}
+
+/* Media queries pour les tablettes et ordinateurs */
+@media screen and (min-width: 601px) {
+    .et-hero-tabs h1 {
+        font-size: 4.5rem; /* Taille normale du titre pour les tablettes et ordinateurs */
+    }
+
+    .et-hero-tabs h3 {
+        font-size: 1.3rem; /* Taille normale du sous-titre pour les tablettes et ordinateurs */
+    }
+
+    .et-hero-tab {
+        font-size: 1rem; /* Taille normale des onglets pour les tablettes et ordinateurs */
+    }
+}
+

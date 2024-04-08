@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACE GABON.SA</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+</head>
+<body>
+  <div class="container right-panel-active">
+    <!-- S'inscrire -->
+    <div class="container__form container--signup">
+      <form method="POST" action="#" class="form" id="form1">
+        <h2 class="form__title">S'inscrire</h2>
+        <input type="text" name="nom" placeholder="Noms" class="input" />
+<input type="tel" name="telephone" placeholder="Numero de telephone" class="input" />
+<input type="email" name="email" placeholder="Email" class="input" />
+<input type="password" name="mot_de_passe" placeholder="Password" class="input" />
+
+        <button class="btn" onclick="window.location.href='{{ url_for('accueil') }}';">S'inscrire</button>
+
+        <!-- <button class="btn">S'inscrire</button> -->
+      </form>
+    </div>
+  
+    <!-- Se connecter -->
+    <div class="container__form container--signin">
+      <form method="POST" action="#" class="form" id="form2">
+        <h2 class="form__title">Se connecter</h2>
+        <input type="email" name="email" placeholder="Email" class="input" />
+<input type="password" name="mot_de_passe" placeholder="Mot de passe" class="input" />
+
+  <a href="{{ url_for('reset_password') }}" class="link">Mot de passe oublié?</a>
+        <button class="btn" onclick="window.location.href='{{ url_for('accueil') }}';">Se connecter</button>
+
+      </form>
+    </div>
+  
+    <!-- Overlay -->
+    <div class="container__overlay">
+      <div class="overlay">
+        <div class="overlay__panel overlay--left">
+          <button class="btn" id="signIn">Se connecter</button>
+        </div>
+        <div class="overlay__panel overlay--right">
+          <button class="btn" id="signUp">S'inscrire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

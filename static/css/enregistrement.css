@@ -1,0 +1,166 @@
+/* Styles par défaut */
+body {
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+    padding: 0;
+    background-color: white !important;
+    margin: 0;
+}
+
+/* Styles pour les liens */
+a {
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #115584;
+    animation: move 5s ease-in-out infinite alternate;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-10px, -10px);
+    }
+    50% {
+        transform: translate(10px, 10px);
+    }
+    75% {
+        transform: translate(-10px, 10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Styles pour les formulaires */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+select {
+    width: calc(80% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: "Minion Pro", 'Myriad Pro Bold', sans-serif;
+    font-size: 15px;
+}
+
+/* Styles pour la navigation */
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: "Minion Pro", 'Myriad Pro Bold', sans-serif ;
+    font-size: 15px;
+    gap: 24px;
+    color: gray;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: "Minion Pro", 'Myriad Pro Bold', sans-serif ;
+    font-size: 15px;
+    gap: 24px;
+    color: gray;
+}
+
+/* Styles pour le bouton */
+button {
+    font-family: "Minion Pro", 'Myriad Pro Bold', sans-serif;
+    padding: 10px 20px;
+    background-color: #115584;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 4px 6px rgba(17, 85, 132, 0.1);
+    transition: background-color 0.3s ease, transform 0.5s ease;
+    position: relative;
+}
+
+button:hover {
+    background-color: #0e4469;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    transform: scaleY(0);
+    transition: transform 0.5s ease;
+}
+
+button:hover::after {
+    transform: scaleY(1);
+}
+
+/* Styles pour le bouton personnalisé */
+.custom-file-upload {
+    border: 2px solid #115584;
+    background-color: #fff;
+    color: #115584;
+    padding: 8px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.custom-file-upload:hover {
+    background-color: #115584;
+    color: #fff;
+}
+
+/* Styles pour les sections */
+section {
+    background-color: whitesmoke;
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px gray;
+    text-align: center;
+}
+
+/* Média queries pour les tablettes */
+@media screen and (max-width: 768px) {
+    section {
+        width: 80%;
+    }
+}
+
+/* Média queries pour les téléphones */
+@media screen and (max-width: 480px) {
+    section {
+        width: 90%;
+    }
+    nav {
+        flex-direction: column;
+    }
+}
+
+/* Ajoutez d'autres règles de média queries selon vos besoins */

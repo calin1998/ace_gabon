@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Accueil.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+    <title>ACE GABON</title>
+</head>
+<body>
+
+    
+    <!-- Section de navigation -->
+    <section class="nav">
+
+    <a href="{{ url_for('index') }}"><h1>ACE GABON.SA</h1></a>
+
+        <!-- Texte de chargement animé -->
+        <h3 class="span loader">
+            <!-- Chaque lettre est animée individuellement -->
+            <span class="m">B</span>
+            <span class="m">I</span>
+            <span class="m">E</span>
+            <span class="m">N</span>
+            <span class="m">V</span>
+            <span class="m">E</span>
+            <span class="m">N</span>
+            <span class="m">U</span>
+            <span class="m">E</span>
+            <span class="m">&nbsp;</span> <!-- Espace -->
+            <span class="m">M</span>
+            <span class="m">A</span>
+            <span class="m">D</span>
+            <span class="m">A</span>
+            <span class="m">M</span>
+            <span class="m">E</span>
+            <span class="m">&nbsp;</span> <!-- Espace -->
+            <span class="m">R</span>
+            <span class="m">O</span>
+            <span class="m">C</span>
+            <span class="m">H</span>
+            <span class="m">E</span>
+            <span class="m">L</span>
+            <span class="m">L</span>
+            <span class="m">E</span>
+            <!-- <span class="m">G</span>
+            <span class="m">I</span>
+            <span class="m">S</span> -->
+        </h3>
+        
+        <!-- Barre de navigation -->
+        <div class="nav-container">
+            <!-- Liens de navigation -->
+            <a class="nav-tab" href="{{ url_for('personnel') }}">GESTION DU PERSONNEL</a>
+            <a class="nav-tab" href="#tab-esbuild">GESTION DE PRESENCE</a>
+            <!-- <a class="nav-tab" href="#tab-svelte">GESTION DES CONTRATS</a> -->
+            <!-- <a class="nav-tab" href="#tab-svelte">GALERIE PHOTO</a> -->
+            <!-- Barre de défilement des onglets de navigation -->
+            <span class="nav-tab-slider"></span>
+        </div>
+    </section>
+    <!-- <canvas class="background"></canvas> -->
+    <!-- Chargement du script JavaScript -->
+    <script src="{{ url_for('static', filename='js/Accueil.js') }}"></script>
+</body>
+</html>

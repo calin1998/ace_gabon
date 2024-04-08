@@ -1,0 +1,101 @@
+/* Style du corps de la page */
+body {
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout de l'ombre portée */
+}
+a{
+
+    text-decoration: none;
+}
+h1 {
+
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #115584;
+    padding: 10px;
+}
+
+@keyframes surprise {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Style du conteneur du tableau */
+.table-container {
+    overflow-x: auto;
+}
+
+/* Style du tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+/* Style des en-têtes de colonne */
+th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Style des cellules de données */
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+/* Style des lignes impaires */
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Ajout d'un style de survol sur les lignes du tableau */
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Media queries pour le rendu responsive */
+@media screen and (max-width: 600px) {
+    /* Styles pour les écrans de taille maximale de 600px (téléphones) */
+    /* Réduire la taille du padding pour les cellules de données */
+    td {
+        padding: 8px;
+    }
+    /* Masquer les en-têtes de colonne */
+    th {
+        display: none;
+    }
+    /* Afficher les cellules de données comme des blocs */
+    td {
+        display: block;
+        border: none;
+        border-bottom: 1px solid gray;
+    }
+    /* Style alternatif pour les lignes impaires */
+    tr:nth-child(odd) {
+        background-color: transparent;
+    }
+    /* Style de survol pour les lignes */
+    tr:hover {
+        background-color: transparent;
+    }
+}
+
+/* Media queries pour les tablettes et les ordinateurs */
+@media screen and (min-width: 601px) {
+    /* Styles pour les écrans de taille minimale de 601px (tablettes et ordinateurs) */
+    /* Vous pouvez ajouter des styles spécifiques pour les tablettes et les ordinateurs ici */
+}

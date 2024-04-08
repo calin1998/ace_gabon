@@ -1,0 +1,97 @@
+/* Reset général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style général de la page */
+body {
+    font-family: "Minion Pro", 'Myriad Pro Bold';
+    padding: 0;
+    background-color: white !important;
+    margin: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #115584;
+    animation: move 5s ease-in-out infinite alternate;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    font-family: "Minion Pro", 'Myriad Pro Bold', sans-serif;
+    padding: 10px 20px;
+    background-color: #115584;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 4px 6px rgba(17, 85, 132, 0.1);
+    transition: background-color 0.3s ease, transform 0.5s ease;
+    position: relative;
+}
+
+button:hover {
+    background-color: #0e4469;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    transform: scaleY(0);
+    transition: transform 0.5s ease;
+}
+
+button:hover::after {
+    transform: scaleY(1);
+}
+
+/* Animation pour les boutons inspirée des jeux vidéo */
+@keyframes gameButtonAnimation {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: translateY(-5px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+}
+
+button[type="submit"] {
+    animation: gameButtonAnimation 0.5s ease-in-out infinite alternate;
+}

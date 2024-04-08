@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACE GABON</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/enregistrement.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+</head>
+
+<body>
+    <section>
+        <a href="{{ url_for('personnel') }}">
+            <h1>ENREGISTREMENT</h1>
+        </a>
+        
+        <form action="#" method="post" enctype="multipart/form-data" id="inscriptionForm">
+            <div class="form-group">
+                <input type="number" id="nom" name="nom" required placeholder="Matricule">
+            </div>
+            <div class="form-group">
+                <input type="text" id="nom" name="nom" required placeholder="Nom(s)">
+            </div>
+            <div class="form-group">
+                <input type="text" id="prenom" name="prenom" required placeholder="Prénom(s)">
+            </div>
+            <div class="form-group">
+                <input type="date" id="date_naissance" name="date_naissance" required placeholder="jj/mm/aaaa">
+            </div>
+            <div class="form-group">
+                <input type="text" id="lieu_naissance" name="lieu_naissance" required placeholder="Lieu de naissance">
+            </div>
+            <div class="form-group">
+                <nav>
+                    <label>Sexe :</label><br>
+                    <input type="radio" id="homme" name="sexe" value="homme" required>
+                    <label for="homme">Homme</label><br>
+                    <input type="radio" id="femme" name="sexe" value="femme">
+                    <label for="femme">Femme</label>
+                </nav>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="departement" name="departement" required placeholder="Département">
+            </div>
+            <div class="form-group">
+                <input type="text" id="fonction" name="fonction" required placeholder="Fonction">
+            </div>
+            <div class="form-group">
+                <header>
+                    <label>Type de contrat</label><br>
+                    <input type="radio" id="cdi" name="contrat" value="cdi" required>
+                    <label for="cdi"> CDI</label><br>
+                    <input type="radio" id="cdd" name="contrat" value="cdd">
+                    <label for="cdd">CDD</label><br>
+                    <input type="radio" id="journalier" name="contrat" value="journalier">
+                    <label for="journalier">Journalier</label>
+                </header>
+            </div>
+            <div class="form-group">
+                <select id="niveau_etude" name="niveau_etude" required>
+                    <option value="">Niveau d'étude...</option>
+                    <option value="Bac">Sans_Bac</option>
+                    <option value="Bac">Bac</option>
+                    <option value="Bac+2">Bac+2</option>
+                    <option value="Bac+3 et plus">Bac+3 et plus</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" id="diplome" name="diplome" required placeholder="Diplôme">
+            </div>
+            <div class="form-group" id="enfantsGroup">
+                <input type="number" id="nombre_enfants" name="nombre_enfants" min="0" required
+                    placeholder="Nombre d'Enfants" onchange="toggleEnfantsFields()">
+            </div>
+            <div id="enfantsFields" style="display:none;">
+                <!-- Champs des enfants -->
+            </div>
+            <div class="form-group">
+                <input type="tel" id="numero_telephone" name="numero_telephone" required
+                    placeholder="Numéro de Téléphone">
+            </div>
+            <div class="form-group">
+                <input type="email" id="adresse_mail" name="adresse_mail" required placeholder="Adresse Email">
+            </div>
+            <div class="form-group">
+                <input type="text" id="nom" name="nom" required placeholder="Numero_CNSS">
+            </div>
+            <div class="form-group">
+                <input type="text" id="nom" name="nom" required placeholder="Numero_CNAMGS">
+            </div>
+            <div class="form-group">
+                <select id="statut_matrimonial" name="statut_matrimonial" required>
+                    <option value="">Statut Matrimonial...</option>
+                    <option value="Célibataire">Célibataire</option>
+                    <option value="Concubinage">Concubinage</option>
+                    <option value="Marié(e)">Marié(e)</option>
+                    <option value="Divorcé(e)">Divorcé(e)</option>
+                    <option value="Veuf/Veuve">Veuf/Veuve</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="date" id="date_embauche" name="date_embauche" required placeholder="Date d'Embauche">
+            </div>
+            <div class="form-group">
+                <label for="photo" class="custom-file-upload">Choisir une photo</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+            <div class="form-group">
+                <button type="submit">Enregistrer</button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        function toggleEnfantsFields() {
+            var nombre_enfants = document.getElementById("nombre_enfants").value;
+            var enfantsFields = document.getElementById("enfantsFields");
+            if (nombre_enfants == 0) {
+                enfantsFields.innerHTML = ""; // Efface les champs des enfants s'il n'y a pas d'enfants
+                enfantsFields.style.display = "none"; // Masque les champs des enfants
+            } else {
+                // Affiche les champs des enfants
+                enfantsFields.style.display = "block";
+                enfantsFields.innerHTML = "";
+                for (var i = 0; i < nombre_enfants; i++) {
+                    var divEnfant = document.createElement("div");
+                    divEnfant.classList.add("form-group");
+                    divEnfant.innerHTML = '<input type="text" placeholder="Nom de l\'enfant" name="nom_enfant[]"><input type="text" placeholder="Prénom de l\'enfant" name="prenom_enfant[]"><input type="date" placeholder="Date de naissance de l\'enfant" name="date_naissance_enfant[]">';
+                    enfantsFields.appendChild(divEnfant);
+                }
+            }
+        }
+
+        document.getElementById("inscriptionForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêche le formulaire d'être envoyé de manière conventionnelle
+
+            // Récupérer les données du formulaire
+            var formData = new FormData(this);
+
+            // Envoyer les données via AJAX ou autre
+            // Ici vous pouvez écrire le code pour envoyer les données au serveur
+            // Par exemple :
+            /*
+            fetch('url_du_serveur', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                // Traiter la réponse du serveur
+            })
+            .catch(error => {
+                // Gérer les erreurs
+            });
+            */
+        });
+
+// script.js
+
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("inscriptionForm");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Empêche le formulaire d'être soumis de manière conventionnelle
+        
+        var formData = new FormData(form);
+
+        fetch('/inscription', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Vous pouvez gérer la réponse du serveur ici
+            // Par exemple, afficher un message de succès ou de traitement réussi à l'utilisateur
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Gérer les erreurs, par exemple afficher un message d'erreur à l'utilisateur
+        });
+    });
+});
+
+
+
+
+    </script>
+</body>
+
+</html>
